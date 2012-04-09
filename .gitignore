@@ -13,3 +13,17 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# generic
+bin/*
+doc/*
+docs/*
+obj/*
+lib/*
+
+#rake
+Gemfile.lock
+
+# jedit temp files
+*~
+\#*\#
