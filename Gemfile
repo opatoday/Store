@@ -6,6 +6,10 @@ gem 'rails', '3.1.4'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'spree_social', :git => 'git://github.com/spree/spree_social.git'
+#gem 'spree_social', '1.1'
+#gem 'nokogiri', '1.5.2'
+#gem 'multi_json'
 gem 'execjs'
 gem 'therubyracer'
 

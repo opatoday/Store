@@ -5,27 +5,37 @@
       <div class="inner" data-hook="details_inner">
         <p class="field" id="gender">
           <%= f.label :gender, t(:gender) %><br />
-          <%= f.text_field :gender %>
+          <%= f.radio_button :gender, 'M' %> <%= f.label :gender, "Male" %>
+          <%= f.radio_button :gender, 'F' %> <%= f.label :gender, "Female" %>
         </p>
         <p class="field" id="profession">
           <%= f.label :profession, t(:profession) %><span class="req">*</span><br />
-          <%= f.text_field :profession, :class => 'required' %>
+          <%= f.select :profession, [['Other', 1], ['Pharmacist', 2], ['Nurse', 3], ['Physician', 4]], {:class => 'required'} %>
         </p>
         <p class="field" id="other_profession">
-          <%= f.label :other_profession, t(:if_other_please_specify) %><br />
+          <%= f.label :other_profession, t(:if_other_please_specify) %><span class="req">*</span><br />
           <%= f.text_field :other_profession %>
+        </p>
+        <p class="field" id="practice_place">
+          <%= f.label :practice_place, t(:place_of_primary_practice) %><span class="req">*</span><br />
+          <%= f.select :practice_place, [['Other', 1], ['Hospital', 2], ['Community', 3], ['Family health team', 4], ['Industry', 5], ['Government', 6], ['Academic institution', 7]], {:class => 'required'} %>
         </p>
         <p class="field" id="graduation">
           <%= f.label :graduation, t(:year_of_graduation) %><br />
           <%= f.text_field :graduation %>
         </p>
         <p class="field" id="province">
-          <%= f.label :graduation, t(:year_of_graduation) %><br />
+          <%= f.label :graduation, "Province or Country (if not Canada) of graduation" %><br />
           <%= f.text_field :graduation %>
         </p>
         <p class="field" id="member_number">
           <%= f.label :member_number, t(:OPA_member_number) %><br />
           <%= f.text_field :member_number %>
+        </p>
+        <p class="field" id="member">
+          <%= f.label :member, t(:are_you_an_OPA_memeber) %><br />
+          <%= f.radio_button :member, true %> <%= f.label :member, "Yes" %>
+          <%= f.radio_button :member, false %> <%= f.label :member, "No" %>
         </p>
       </div>
     <% end %>

@@ -8,5 +8,7 @@
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
-  # config.site_name = "Spree Demo Site"
+  config.site_name = "Ontario Pharmacists' Association"
+  Spree::Config.set(:logo => '/assets/opa_logo.gif')
+  Spree::Config.set(:default_country_id => 35)
 end
