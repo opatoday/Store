@@ -1,7 +1,12 @@
 class UserDetail < ActiveRecord::Base
+  self.table_name_prefix = 'spree_'
+
   belongs_to :user
+  has_many :orders, :through => :user
   
-  validates :profession, :practice_place, :present => true
+  validates :practice_type, :presence => true
+  validates :opa, :presence => true, :if => :member?
   
-  attr_accessible :gender, :profession, :other_profession, :practice_place, :year_graduation, :province_graduation, :member, :opa_id, :email_products_check
+  attr_accessible :practice_type, :opa, :ocp, :member
+
 end

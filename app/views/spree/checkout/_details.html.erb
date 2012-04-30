@@ -4,13 +4,13 @@
       <legend><%= t(:additional_information) %></legend>
       <div class="inner" data-hook="details_inner">
         <p class="field" id="practice_type">
-          <%= f.label :practice_place, t(:practice_type) %><span class="req">*</span><br />
-          <%= f.select :practice_place, [['Independent', 1], ['Banner', 2], ['Chain', 3], ['Franchise', 4], ['Hospital', 5]], {:class => 'required'} %>
+          <%= f.label :practice_type, t(:practice_type) %><span class="req">*</span><br />
+          <%= f.select :practice_type, [['Independent', 1], ['Banner', 2], ['Chain', 3], ['Franchise', 4], ['Hospital', 5]], {:class => 'required'} %>
         </p>
         <!-- [['Other', 1], ['Hospital', 2], ['Community', 3], ['Family health team', 4], ['Industry', 5], ['Government', 6], ['Academic institution', 7]] -->
-        <p class="field" id="member_number">
-          <%= f.label :member_number, t(:OPA_member_number) %><span class="req">*</span><br />
-          <%= f.text_field :member_number %>
+        <p class="field" id="opa">
+          <%= f.label :opa, t(:OPA_member_number) %><span class="req">*</span><br />
+          <%= f.text_field :opa %>
         </p>
         <p class="field" id="member">
           <%= f.label :member, t(:are_you_an_OPA_member) %><span class="req">*</span><br />

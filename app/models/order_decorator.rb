@@ -1,9 +1,13 @@
 Spree::Order.class_eval do
   before_validation :copy_bill_address
-  # after_save :save_user_details
+  after_commit :save_user_details
   
   has_one :user_detail, :through => :user
-  # accepts_nested_attributes_for :user_detail
+  accepts_nested_attributes_for :user_detail
+  
+  def order_user_detail
+    self.user.user_detail || self.user.user_detail.create
+  end
   
 protected
   def copy_bill_address
@@ -19,6 +23,8 @@ protected
   end
   
   def save_user_details
-    # self.user_detail.create(params[:order][:user_detail])
+    # logger.debug "###save_user_details params: #{params[:order]}"
+    # @user = @order.user
+    # @user.build_user_detail(params[:order][:user_details])
   end
 end
