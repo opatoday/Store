@@ -27,3 +27,4 @@ Gemfile.lock
 # jedit temp files
 *~
 \#*\#
+config/config.yml

@@ -25,7 +25,10 @@ Spree::CheckoutController.class_eval do
         flash[:commerce_tracking] = "nothing special"
         respond_with(@order, :location => completion_route)
       else
-        save_user_detail if @order.state == "delivery"
+        if @order.state == "delivery"
+          save_user_detail 
+          apply_member_discount
+        end
         respond_with(@order, :location => checkout_state_path(@order.state))
       end
     else
@@ -34,15 +37,21 @@ Spree::CheckoutController.class_eval do
   end
   
   def save_user_detail
-    
     @user = @order.user
-    
     if @user.user_detail.nil?
       @user.build_user_detail(params[:order][:user_details]).save!
     else
       @user_detail = @user.user_detail
       @user_detail.update_attributes(params[:order][:user_details])
-      # logger.debug "###order params: #{@user.user_detail}"
     end
+  end
+  
+  def apply_member_discount
+    # fire_event('spree.checkout.coupon_code_added', :coupon_code => '20MEMBER')
+    # @order.price_adjustment_totals = -20
+    # logger.debug "###order adjustments: #{@order.price_adjustment_totals}"  
+    # Spree::Promotion::Actions::CreateAdjustment.compute_amount(calculable)
+    
+    # logger.debug "###order adjustments: #{Spree::Calculator::FreeShipping.description}" 
   end
 end

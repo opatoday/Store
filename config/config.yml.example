@@ -1,0 +1,15 @@
+defaults: &DEFAULTS
+  litmos:
+    auth:
+      apikey: ""
+      source: ""
+     
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS
+     

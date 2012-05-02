@@ -46,3 +46,4 @@ end
 gem 'spree'
 gem 'spree_usa_epay'
 gem 'spree_skrill'
+# gem 'spree_user_groups', :git => 'https://github.com/levymetal/spree_user_groups.git'

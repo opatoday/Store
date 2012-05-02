@@ -5,3 +5,4 @@ require File.expand_path('../application', __FILE__)
 Store::Application.initialize!
 
 ActiveRecord::Base.include_root_in_json = true
+ActiveResource::Base.logger = ActiveRecord::Base.logger

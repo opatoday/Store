@@ -9,7 +9,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Store
+module Store   
   class Application < Rails::Application
   
     config.to_prepare do
@@ -23,7 +23,9 @@ module Store
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
-
+    
+    Application.config.custom = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].each { |k,v| config.send "#{k}=", v }
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
